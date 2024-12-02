@@ -42,7 +42,7 @@ python manage.py migrate
 
 4. Import location data:
 ```bash
-# Make sure your SQLite database file is in the correct location
+# Make sure your SQLite database file is in the correct location (which is in the root of the backendproject)
 python manage.py import_locations
 ```
 
