@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Cities</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      [ngModel]="searchTerm"
+      (ngModelChange)="onSearch($event)"
+      placeholder="Search cities..."
+      class="search-input"
+    >
+  </div>
+
+  <div class="list-container">
+    <div *ngFor="let city of cities"
+         class="list-item"
+         (click)="onCitySelect(city)">
+      {{ city.name }}
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button
+      (click)="previousPage()"
+      [disabled]="currentPage === 1"
+      class="pagination-button"
+    >
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      class="pagination-button"
+    >
+      Next
+    </button>
+  </div>
+</div>

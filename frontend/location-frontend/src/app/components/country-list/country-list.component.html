@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Countries</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch($event)"
+      placeholder="Search countries..."
+      class="search-input"
+    >
+  </div>
+
+  <div class="list-container">
+    <div *ngFor="let country of countries" class="list-item">
+      {{ country.name }}
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button
+      (click)="previousPage()"
+      [disabled]="currentPage === 1"
+      class="pagination-button"
+    >
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      class="pagination-button"
+    >
+      Next
+    </button>
+  </div>
+</div>
